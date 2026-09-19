@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --brand-gradient: linear-gradient(
+    90deg,
+    #ff7a18 0%,
+    #ff3d9a 48%,
+    #7c3aed 100%
+  );
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  background: white;
+  color: #0f172a;
+  font-family: "Inter", sans-serif;
+}
+
+
+.gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.gradient-bg {
+  background: var(--brand-gradient);
+}
+
+
+/* Main container */
+.section-container {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+
+@media (min-width: 768px) {
+  .section-container {
+    width: min(1180px, calc(100% - 64px));
+  }
+}
+
+
+/* Navbar hover */
+.nav-link {
+  position: relative;
+  transition: 0.2s;
+}
+
+
+.nav-link:hover {
+  color: #ec4899;
+}
+
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--brand-gradient);
+  transform: scaleX(0);
+  transition: 0.2s;
+}
+
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* Technology card */
+.tech-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.tech-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 35px
+    rgba(15, 23, 42, 0.08);
+}
