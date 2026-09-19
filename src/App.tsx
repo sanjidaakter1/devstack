@@ -25,7 +25,7 @@ const App = () => {
 
   // Load technologies from JSON
   useEffect(() => {
-    fetch("/data/technologies.json")
+    fetch(`${import.meta.env.BASE_URL}data/technologies.json`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to load technologies");
@@ -46,21 +46,32 @@ const App = () => {
 
   // Add technology to stack
   const handleAdd = (tech: Tech) => {
-    const alreadyAdded = stack.some((item) => item.id === tech.id);
+    const alreadyAdded = stack.some(
+      (item) => item.id === tech.id
+    );
 
     if (alreadyAdded) {
-      toast.warning(`${tech.name} is already in your stack!`);
+      toast.warning(
+        `${tech.name} is already in your stack!`
+      );
       return;
     }
 
     setStack((prev) => [...prev, tech]);
-    toast.success(`${tech.name} added to your stack!`);
+    toast.success(
+      `${tech.name} added to your stack!`
+    );
   };
 
   // Remove technology
   const handleRemove = (tech: Tech) => {
-    setStack((prev) => prev.filter((item) => item.id !== tech.id));
-    toast.info(`${tech.name} removed from your stack.`);
+    setStack((prev) =>
+      prev.filter((item) => item.id !== tech.id)
+    );
+
+    toast.info(
+      `${tech.name} removed from your stack.`
+    );
   };
 
   // Remove all technologies
