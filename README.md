@@ -6,25 +6,25 @@ DevStack is a responsive React application where users can explore different dev
 
 Add your live site link here:
 
-https://your-live-site-link.com
+https://sanjidaakter1.github.io/devstack
 
 ## 📦 GitHub Repository
 
 Add your GitHub repository link here:
 
-https://github.com/your-username/your-repository
+https://github.com/sanjidaakter1/devstack
 
 ---
 
 ## 🛠️ Technologies Used
 
-* React.js
-* TypeScript
-* Tailwind CSS
-* React Icons
-* React Toastify
-* JSON
-* Vite
+- React.js
+- TypeScript
+- Tailwind CSS
+- React Icons
+- React Toastify
+- JSON
+- Vite
 
 ---
 
@@ -34,12 +34,12 @@ https://github.com/your-username/your-repository
 
 Users can explore different technologies from categories such as:
 
-* Frontend
-* Backend
-* Database
-* Programming Language
-* Styling
-* DevOps
+- Frontend
+- Backend
+- Database
+- Programming Language
+- Styling
+- DevOps
 
 Each technology card shows its name, description, category, difficulty level, rating, and badge.
 
@@ -51,18 +51,18 @@ The application also prevents duplicate technologies from being added to the sta
 
 Users can:
 
-* Add a technology
-* Remove a technology
-* Remove all technologies
-* See the number of selected technologies
+- Add a technology
+- Remove a technology
+- Remove all technologies
+- See the number of selected technologies
 
 ### 3. 📱 Responsive Design
 
 The application is fully responsive and works across:
 
-* Mobile
-* Tablet
-* Desktop
+- Mobile
+- Tablet
+- Desktop
 
 The technology cards automatically adjust based on the screen size.
 
@@ -74,11 +74,11 @@ React Toastify is used to display notifications for user actions.
 
 Notifications are shown when:
 
-* A technology is added
-* A duplicate technology is added
-* A technology is removed
-* All technologies are removed
-* Technology data fails to load
+- A technology is added
+- A duplicate technology is added
+- A technology is removed
+- All technologies are removed
+- Technology data fails to load
 
 ---
 
@@ -96,9 +96,9 @@ The project uses a shared brand gradient:
 
 The same gradient is used for:
 
-* Brand name
-* Hero heading highlight
-* Primary buttons
+- Brand name
+- Hero heading highlight
+- Primary buttons
 
 The gradient is defined in one place so it can easily be changed throughout the application.
 
@@ -134,9 +134,9 @@ For example, in this project, technology data and callback functions are passed 
 
 I used `useState` in this project to manage:
 
-* Technology data
-* Selected technology stack
-* Loading state
+- Technology data
+- Selected technology stack
+- Loading state
 
 Example:
 
@@ -183,12 +183,9 @@ In this project, I used the technology `id` as the key.
 Example:
 
 ```tsx
-{technologies.map((tech) => (
-  <TechCard
-    key={tech.id}
-    tech={tech}
-  />
-))}
+{
+  technologies.map((tech) => <TechCard key={tech.id} tech={tech} />);
+}
 ```
 
 ---
@@ -202,15 +199,17 @@ I used conditional rendering in the `StackSidebar` to show an empty message when
 Example:
 
 ```tsx
-{stack.length === 0 ? (
-  <p>Your stack is empty.</p>
-) : (
-  <div>
-    {stack.map((tech) => (
-      <p key={tech.id}>{tech.name}</p>
-    ))}
-  </div>
-)}
+{
+  stack.length === 0 ? (
+    <p>Your stack is empty.</p>
+  ) : (
+    <div>
+      {stack.map((tech) => (
+        <p key={tech.id}>{tech.name}</p>
+      ))}
+    </div>
+  );
+}
 ```
 
 ---
@@ -224,11 +223,7 @@ In this project, the parent passes the technology data and callback function to 
 Example:
 
 ```tsx
-<TechCard
-  tech={tech}
-  isAdded={isAdded}
-  onAdd={handleAdd}
-/>
+<TechCard tech={tech} isAdded={isAdded} onAdd={handleAdd} />
 ```
 
 Here, `tech`, `isAdded`, and `onAdd` are passed from the parent to the child.
@@ -238,7 +233,5 @@ The child can send something back to the parent by calling the callback function
 Example:
 
 ```tsx
-<button onClick={() => onAdd(tech)}>
-  Add to Stack
-</button>
+<button onClick={() => onAdd(tech)}>Add to Stack</button>
 ```
